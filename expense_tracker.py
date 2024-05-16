@@ -45,12 +45,20 @@ class ExpenseTracker:
         except FileNotFoundError:
             print("No saved expenses found.")
 
-    def self_destruct(self, seconds):
+    def self_destruct_fallacy(self, seconds):
         while seconds > 0:
             print(f"Self destructing in: {seconds}")
             time.sleep(1)
             seconds -= 1
-        print("***BOOOOOOM****")    
+        print("***BOOOOOOM****")  
+
+    def secret_menu(self):
+        print("Just kidding")
+        time.sleep(3)
+        print("Accessing secret link..")
+        time.sleep(3)
+        print("Copy and paste link to reveal the wonders for yourself: https://svs.gsfc.nasa.gov/14576/")
+
 def main():
     tracker = ExpenseTracker()
     tracker.load_expense("expenses.json")
@@ -77,7 +85,7 @@ def main():
         elif choice == "2":
             index = int(input("Enter the expense index to remove: ")) - 1
             tracker.remove_expense(index)
-        
+
         elif choice == "3":
             tracker.view_expenses()
         
@@ -89,7 +97,8 @@ def main():
             print("Expenses saved. Goodbye!")
 
         elif choice == "6":
-            tracker.self_destruct(7)
+            tracker.self_destruct_fallacy(7)
+            tracker.secret_menu()
             break
 
         else:
