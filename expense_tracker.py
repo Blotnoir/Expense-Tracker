@@ -1,4 +1,5 @@
 import json
+import time
 
 class Expense:
     def __init__(self, date, description, amount):
@@ -44,6 +45,12 @@ class ExpenseTracker:
         except FileNotFoundError:
             print("No saved expenses found.")
 
+    def self_destruct(self, seconds):
+        while seconds > 0:
+            print(f"Self destructing in: {seconds}")
+            time.sleep(1)
+            seconds -= 1
+        print("***BOOOOOOM****")    
 def main():
     tracker = ExpenseTracker()
     tracker.load_expense("expenses.json")
@@ -55,8 +62,9 @@ def main():
         print("3. View Expenses")
         print("4. Total Expenses")
         print("5. Save and Exit")
+        print("6. Surprise function..")
 
-        choice = input("Enter your choice (1-5): ")
+        choice = input("Enter your choice (1-6): ")
 
         if choice == "1":
             date = input("Enter the date (MM-DD-YYYY): ")
@@ -79,7 +87,11 @@ def main():
         elif choice == "5":
             tracker.save_expenses("expenses.json")
             print("Expenses saved. Goodbye!")
+
+        elif choice == "6":
+            tracker.self_destruct(7)
             break
+
         else:
             print("Invalid choice. Please try again.")
 
