@@ -57,7 +57,7 @@ class ExpenseTracker:
         time.sleep(3)
         print("Accessing secret link..")
         time.sleep(3)
-        print("Copy and paste link to reveal the wonders for yourself: https://svs.gsfc.nasa.gov/14576/")
+        print("---->Copy and paste link to reveal the wonders for yourself: https://svs.gsfc.nasa.gov/14576/")
 
 def main():
     tracker = ExpenseTracker()
